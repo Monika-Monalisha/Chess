@@ -38,7 +38,7 @@ public class Cell extends JPanel {
     public void setPiece(Piece p)
     {
         piece=p;
-        ImageIcon img=new javax.swing.ImageIcon(this.getClass().getResource(p.getPath()));
+        ImageIcon img=new javax.swing.ImageIcon(this.getClass().getResource(p.getFilePath()));
         content=new JLabel(img);
         this.add(content);
     }
