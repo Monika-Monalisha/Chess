@@ -8,9 +8,10 @@ import Game.*;
  */
 public class Pawn extends Piece {
 
-    public Pawn(String id, int color) {
+    public Pawn(String id, String path, int color) {
         super.setColor(color);
         super.setId(id);
+        super.setFilePath(path);
     }
 
     @Override

@@ -8,17 +8,19 @@ import Game.*;
  */
 public class Queen extends Piece {
 
-    public Queen(String id, int color) {
+    public Queen(String id, String path, int color) {
         super.setColor(color);
         super.setId(id);
+        super.setFilePath(path);
     }
+
 
     @Override
     public ArrayList<Cell> move(Cell[][] chessBoard, int x, int y) {
         validMoves.clear();
 
-        Bishop b = new Bishop("tempBishop", this.getColor());
-        Rook r = new Rook("tempRook", this.getColor());
+        Bishop b = new Bishop("tempBishop", "path", this.getColor());
+        Rook r = new Rook("tempRook", "path", this.getColor());
         validMoves.addAll(r.move(chessBoard,x,y));
         validMoves.addAll(b.move(chessBoard,x,y));
         return validMoves;

@@ -9,9 +9,11 @@ import Game.*;
  */
 public class Knight extends Piece {
 
-    public Knight(String id, int color) {
-        super.setId(id);
+    public Knight( String id, String path, int color) {
+
         super.setColor(color);
+        super.setId(id);
+        super.setFilePath(path);
     }
 
     @Override

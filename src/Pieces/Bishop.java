@@ -8,10 +8,11 @@ import Game.*;
  */
 public class Bishop extends Piece {
 
-    public Bishop( String id, int color) {
+    public Bishop( String id, String path, int color) {
 
         super.setColor(color);
         super.setId(id);
+        super.setFilePath(path);
     }
 
     // Function to check a particular cell if the move is valid for Bishop

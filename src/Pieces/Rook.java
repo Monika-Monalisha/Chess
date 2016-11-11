@@ -7,10 +7,12 @@ import Game.*;
  */
 public class Rook extends Piece {
 
-    public Rook(String id, int color) {
+    public Rook(String id, String path, int color) {
         super.setColor(color);
         super.setId(id);
+        super.setFilePath(path);
     }
+
 
     public boolean checkValidCellRook(Cell currentCell) {
 

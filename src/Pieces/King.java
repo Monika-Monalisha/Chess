@@ -11,10 +11,11 @@ public class King extends Piece {
 
     int x , y;
 
-    public King(String id, int color, int x, int y) {
+    public King(String id, String path, int color, int x, int y) {
 
         super.setColor(color);
         super.setId(id);
+        super.setFilePath(path);
         setX(x);
         setY(y);
     }

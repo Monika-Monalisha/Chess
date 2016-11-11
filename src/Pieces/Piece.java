@@ -15,6 +15,8 @@ public abstract class Piece implements Cloneable{
 
     private int color;
     private String id = null;
+    private String filePath = null;
+
     protected ArrayList<Cell> validMoves = new ArrayList<>();
 
     public abstract ArrayList<Cell> move(Cell chessBoard[][], int x, int y);
@@ -35,6 +37,13 @@ public abstract class Piece implements Cloneable{
         this.id = id;
     }
 
+    public String getFilePath() {
+        return filePath;
+    }
+
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
+    }
 
     //This function will return same piece with different reference
     public Piece getcopy() throws CloneNotSupportedException
