@@ -19,6 +19,7 @@ public class Knight extends Piece {
     @Override
     public ArrayList<Cell> move(Cell[][] chessBoard, int x, int y) {
 
+        validMoves.clear();
         int[] validX = { x + 2, x + 2, x + 1, x + 1, x - 1, x - 1, x - 2, x - 2};
         int[] validY = { y + 1, y - 1, y + 2, y - 2, y + 2, y - 2, y + 1, y - 1};
 

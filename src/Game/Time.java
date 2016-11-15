@@ -15,7 +15,7 @@ public class Time {
 
     public Time(JLabel label) {
 
-        timer = new Timer(1000, new TimerListner());
+        timer = new Timer(1000, new TimerListener());
         this.label = label;
         this.remainingTime = Main.remaningTime;
     }
@@ -28,15 +28,17 @@ public class Time {
         this.remainingTime = Main.remaningTime;
     }
 
-    private class TimerListner implements ActionListener {
+    private class TimerListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
 
             int minute, second;
             if( remainingTime > 0) {
                 minute = remainingTime / 60;
-                second = remainingTime % 10;
+                second = remainingTime % 60;
                 label.setText(String.valueOf(minute) + ":" + (second >= 10 ? String.valueOf(second) : "0" + String.valueOf(second)));
+                remainingTime--;
+
             }
             else {
                 label.setText("Time's up!");

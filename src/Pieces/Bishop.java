@@ -16,19 +16,20 @@ public class Bishop extends Piece {
     }
 
     // Function to check a particular cell if the move is valid for Bishop
-    public void checkValidCellBishop(Cell chessBoard[][], int tempX, int tempY) {
+    public boolean checkValidCellBishop(Cell chessBoard[][], int tempX, int tempY) {
 
         if(chessBoard[tempX][tempY].getPiece() == null) {
 
             validMoves.add(chessBoard[tempX][tempY]);
         }
         else if(chessBoard[tempX][tempY].getPiece().getColor() == this.getColor()) {
-            return;
+            return false;
         }
         else {
             validMoves.add(chessBoard[tempX][tempY]);
-            return;
+            return false;
         }
+        return true;
     }
 
 
@@ -45,7 +46,9 @@ public class Bishop extends Piece {
 
         while(tempX < 8 && tempY >= 0) {
 
-            checkValidCellBishop(chessBoard, tempX, tempY);
+            if(!checkValidCellBishop(chessBoard, tempX, tempY)) {
+                break;
+            }
             tempX++;
             tempY--;
         }
@@ -53,9 +56,11 @@ public class Bishop extends Piece {
         tempX = x - 1;
         tempY = y + 1;
 
-        while(x >= 0 && y < 8) {
+        while(tempX >= 0 && tempY < 8) {
 
-            checkValidCellBishop(chessBoard, tempX, tempY);
+            if(!checkValidCellBishop(chessBoard, tempX, tempY)) {
+                break;
+            }
             tempX--;
             tempY++;
         }
@@ -63,7 +68,9 @@ public class Bishop extends Piece {
         tempX = x + 1;
         tempY = y + 1;
         while(tempX < 8 && tempY < 8) {
-            checkValidCellBishop(chessBoard, tempX, tempY);
+            if(!checkValidCellBishop(chessBoard, tempX, tempY)) {
+                break;
+            }
             tempX++;
             tempY++;
         }
@@ -72,7 +79,9 @@ public class Bishop extends Piece {
         tempY = y - 1;
 
         while (tempX >= 0 && tempY >= 0) {
-            checkValidCellBishop(chessBoard, tempX, tempY);
+            if(!checkValidCellBishop(chessBoard, tempX, tempY)) {
+                break;
+            }
             tempX--;
             tempY--;
         }

@@ -42,8 +42,16 @@ public class King extends Piece {
 
 
     public static void arrayCopy (Cell[][] chessBoard, Cell[][] tempBoardSet) {
-        for (int i = 0; i < chessBoard.length; i++) {
-            System.arraycopy(chessBoard[i], 0, tempBoardSet[i], 0, chessBoard[i].length);
+        for (int i = 0; i < 8; i++) {
+            for(int j = 0; j < 8; j++) {
+
+                try {
+                    tempBoardSet[i][j] = new Cell(chessBoard[i][j]);
+                }
+                catch (CloneNotSupportedException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 
@@ -51,6 +59,7 @@ public class King extends Piece {
     public ArrayList<Cell> move(Cell[][] chessBoard, int x, int y) {
         validMoves.clear();
 
+        Piece currentKing = chessBoard[x][y].getPiece();
         int[] validX = {x,x,x+1,x+1,x+1,x-1,x-1,x-1};
         int[] validY = {y-1,y+1,y-1,y,y+1,y-1,y,y+1};
 
@@ -78,7 +87,7 @@ public class King extends Piece {
             if (tempBoardSet[tempX][tempY].getPiece() != null) {
                 tempBoardSet[tempX][tempY].removePiece();
             }
-            tempBoardSet[tempX][tempY].setPiece(this);
+            tempBoardSet[tempX][tempY].setPiece(currentKing);
             if(this.isOnCheck(tempBoardSet)) {
                 validMoves.remove(validMoveCell);
             }
@@ -202,7 +211,7 @@ public class King extends Piece {
         tempX = x - 1;
         tempY = y + 1;
 
-        while(x >= 0 && y < 8) {
+        while(tempX >= 0 && tempY < 8) {
 
             if(chessBoard[tempX][tempY].getPiece() == null) {
                 tempX--;

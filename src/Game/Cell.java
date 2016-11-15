@@ -48,7 +48,7 @@ public class Cell extends JPanel {
             setPiece(cell.getPiece().getcopy());
         }
         else
-            piece=null;
+            piece = null;
     }
 
     public Cell(int x, int y, Piece p)
@@ -70,12 +70,11 @@ public class Cell extends JPanel {
 
 
     // Function to set a piece in any cell
-
     public void setPiece(Piece p)
     {
-        piece=p;
-        ImageIcon img=new javax.swing.ImageIcon(this.getClass().getResource(p.getFilePath()));
-        content=new JLabel(img);
+        piece = p;
+        ImageIcon img = new javax.swing.ImageIcon(this.getClass().getResource(p.getFilePath()));
+        content = new JLabel(img);
         this.add(content);
     }
 

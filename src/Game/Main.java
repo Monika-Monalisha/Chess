@@ -363,7 +363,7 @@ public class Main extends JFrame implements MouseListener{
                 destinationCells.clear();
                 previous = null;
             }
-            else if (current.getPiece() != null || previous.getPiece().getColor() != current.getPiece().getColor()) {
+            else if (current.getPiece() == null || previous.getPiece().getColor() != current.getPiece().getColor()) {
 
                 if(current.isPossibleDestination()) {
                     if(current.getPiece() != null) {
@@ -521,8 +521,10 @@ public class Main extends JFrame implements MouseListener{
     }
 
     private class TimeChange implements ChangeListener {
+
         @Override
         public void stateChanged(ChangeEvent e) {
+
             remaningTime = timeSlider.getValue() * 60;
         }
     }
