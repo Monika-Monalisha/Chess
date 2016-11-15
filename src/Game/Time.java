@@ -13,12 +13,11 @@ public class Time {
     Timer timer;
     int remainingTime;
 
-    public Time(JLabel label, int remainingTime) {
+    public Time(JLabel label) {
 
         timer = new Timer(1000, new TimerListner());
-
         this.label = label;
-        this.remainingTime = remainingTime;
+        this.remainingTime = Main.remaningTime;
     }
 
     public void start() {
@@ -26,7 +25,7 @@ public class Time {
     }
 
     public void reset() {
-        remainingTime = remainingTime;
+        this.remainingTime = Main.remaningTime;
     }
 
     private class TimerListner implements ActionListener {
@@ -43,6 +42,8 @@ public class Time {
                 label.setText("Time's up!");
                 reset();
                 start();
+//                Main.mainBoar;
+
             }
         }
     }
